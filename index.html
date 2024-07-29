@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star turn</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-<YOUR_INTEGRITY_HASH>" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-R6/u7mBslAqkSJaFZ4F+zGDiqSvOR6Rr8jBdE1SdC+s/92wKi49F+2e7VUG/jj7c2F6b3HodOz++J1dz0+2Vzw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <!-- Additional CSS for enhanced UI -->
+    <link href="./codex/main-styles/enhanced-styles.css" rel="stylesheet">
+
+    <link href="./codex/sidebar/sidebar.css" rel="stylesheet">
+
+    <link href="./codex/main-feed/feeds.css" rel="stylesheet">
+
+    <link href="./codex/navi-bar/navi.css" rel="stylesheet">
+    <link href="./codex/navi-bar/name.css" rel="stylesheet">
+
+
+    <link href="./codex/sidebar/settings/settings.css" rel="stylesheet">
+
+    <link href="./codex/profile-picture/profile/profile.css" rel="stylesheet">
+    <link href="./codex/profile-picture/escllipse_verti.css" rel="stylesheet">
+
+    <link href="./codex/profile-picture/add/actual/add.css" rel="stylesheet">
+
+
+    <link href="./codex/search/search.css" rel="stylesheet">
+
+    <link href="./codex/forms/media/vid.css" rel="stylesheet">
+
+
+    
+
+  
+</head>
+<body>
+    <!-- Main Content Area -->
+    <div class="main-container" id="mainContent">
+        <!-- Top Navigation Bar -->
+        <!-- Top Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light w-100 p-0">
+            <div class="container-fluid d-flex justify-content-between align-items-center p-0">
+                <!-- Left Side: Sidebar Menu Icon and Logo -->
+                <div class="d-flex align-items-center logo-name-container mt-2">
+                    <button class="btn btn-outline-secondary mr-3" id="menuButton" aria-label="Menu">
+                        <i class="fas fa-bars fa-lg"></i>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img src="./assets/photos/Designer (2).png" alt="Logo" class="logo">
+                    </a>
+                    <span class="star-turn">
+                        <span class="letter-s">𝓢</span>
+                        <span class="letter-t">𝓽</span>
+                        <span class="letter-a">𝓪</span>
+                        <span class="letter-r">𝓻</span>
+                        <span class="letter-T">𝓣</span>
+                        <span class="letter-u">𝓾</span>
+                        <span class="letter-r2">𝓻</span>
+                        <span class="letter-n">𝓷</span>
+                    </span>
+                </div>
+
+                <!-- Right Side: Profile Photo with Search Icon -->
+                <div class="d-flex align-items-center mt-2">
+                    <div class="search-icon-container">
+                        <i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i>
+                    </div>
+                    <img id="profilePhoto" src="assets/photos/blank-profile.png" alt="Profile Photo" class="rounded-circle profile-photo" data-toggle="modal" data-target="#profileModal">
+                </div>
+            </div>
+        </nav>
+    
+    <!-- Search Section -->
+    <!-- Search Section -->
+    <div id="searchSection" class="search-section d-none">
+        <div class="search-header">
+            <i class="fas fa-arrow-left fa-lg" id="closeSearchIcon" aria-label="Close Search"></i>
+            <div class="search-input-wrapper">
+                <div class="search-input-container">
+                    <input type="text" class="form-control search-input" placeholder="Type your search here...">
+                    <i class="fa-solid fa-x clear-icon" style="color: #000000;"></i>
+                </div>
+            </div>
+        </div>
+        <div class="categories-wrapper">
+            <div class="categories">
+                <span class="category" data-category="new">New</span>
+                <span class="category" data-category="trending">Trending</span>
+                <span class="category" data-category="dance">Dance</span>
+                <span class="category" data-category="entertainment">Entertainment</span>
+                <span class="category" data-category="music">Music</span>
+                <span class="category" data-category="education">Education</span>
+                <span class="category" data-category="games">Games</span>
+                <span class="category" data-category="news">News</span>
+                <span class="category" data-category="sports">Sports</span>
+                <span class="category" data-category="travel">Travel</span>
+                <span class="category" data-category="nature">Nature</span>
+                <span class="category" data-category="food">Food</span>
+                <span class="category" data-category="comedy">Comedy</span>
+                <span class="category" data-category="technology">Technology</span>
+                <span class="category" data-category="space">Space</span>
+                <span class="category" data-category="fashion-beauty">Fashion & Beauty</span>
+                <span class="category" data-category="vlogs">Vlogs</span>
+            </div>
+        </div>
+        <!-- Content display area -->
+        <div id="contentDisplay" class="content-display"></div>
+    </div>
+
+    
+    <!--User Activity or Menu-->
+    <div id="userActivitySection">
+        <i id="closeIcon" class="fas fa-arrow-left"></i>
+        <div id="iconContainer">
+            <div class="icon-item">
+                <i class="fa-regular fa-thumbs-up"></i>
+                <span></span>
+            </div>
+            <div class="icon-item">
+                <i class="fa-regular fa-thumbs-down"></i>
+                <span></span>
+            </div>
+            <div class="icon-item">
+                <i class="fa-regular fa-comment"></i>
+                <span></span>
+            </div>
+            <div class="icon-item">
+                <i class="fa-regular fa-bookmark"></i>
+                <span></span>
+            </div>
+            <div class="icon-item">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span></span>
+            </div>
+        </div>
+        <p>User Activity Section</p>
+    </div>
+    
+
+        <!-- Navigation Tabs -->
+        <!-- Navigation Tabs -->
+        <div class="nav nav-tabs justify-content-center w-100 navitab-tabs" id="myTab" role="tablist">
+            <div class="nav-item navitab-item">
+                <a class="nav-link navitab-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+                    <i class="fas fa-home fa-lg"></i>
+                </a>
+            </div>
+            <div class="nav-item navitab-item">
+                <a class="nav-link navitab-link" id="shorts-tab" data-toggle="tab" href="#shorts" role="tab" aria-controls="shorts" aria-selected="false">
+                    <i class="fas fa-clapperboard fa-lg"></i>
+                </a>
+            </div>
+            <div class="nav-item navitab-item">
+                <a class="nav-link navitab-link" id="following-tab" data-toggle="tab" href="#following" role="tab" aria-controls="following" aria-selected="false">
+                    <i class="fas fa-user-friends fa-lg"></i>
+                </a>
+            </div>
+            <div class="nav-item navitab-item">
+                <a class="nav-link navitab-link" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="false">
+                    <i class="fas fa-images fa-lg"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <!-- Placeholder for home content -->
+                <div class="content-placeholder" id="home-content">
+                    <!-- Content from database will be loaded here -->
+                </div>
+            </div>
+            <div class="tab-pane fade" id="shorts" role="tabpanel" aria-labelledby="shorts-tab">
+                <!-- Placeholder for shorts content -->
+                <div class="content-placeholder" id="shorts-content">
+                    <!-- Content from database will be loaded here -->
+                </div>
+            </div>
+            <div class="tab-pane fade" id="following" role="tabpanel" aria-labelledby="following-tab">
+                <!-- Placeholder for following content -->
+                <div class="content-placeholder" id="following-content">
+                    <!-- Content from database will be loaded here -->
+                </div>
+            </div>
+            <div class="tab-pane fade" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+                <!-- Placeholder for posts content -->
+                <div class="content-placeholder" id="posts-content">
+                    <!-- Content from database will be loaded here -->
+                </div>
+            </div>
+        </div>
+ 
+    <!-- Profile Section -->
+        <!-- Profile Section -->
+    <div id="profileSection" class="profile-section">
+        <div class="profile-header">
+            <i class="fa-solid fa-arrow-left close-profile-icon" aria-label="Close Profile" role="button" tabindex="0"></i>
+            <div class="options-container">
+                <i class="fa-regular fa-square-plus add-icon" aria-label="Add" role="button" tabindex="0"></i>
+                <i class="fa-solid fa-gear gear-icon" aria-label="Settings" role="button" tabindex="0"></i>
+                <div class="add-dropdown" role="menu">
+                    <a href="#" id="addVideo" role="menuitem">Video</a>
+                    <a href="#" id="addShort" role="menuitem">Short</a>
+                    <a href="#" id="addPost" role="menuitem">Post</a>
+                </div>
+                <i class="fa-solid fa-ellipsis-vertical options-icon" aria-label="Options" role="button" tabindex="0"></i>
+                <div class="options-dropdown" role="menu">
+                    <a href="#" id="form" role="menuitem">Form</a>
+                    <a href="#" id="share" role="menuitem">Share</a>
+                    <a href="#" id="logout" role="menuitem">Logout</a>
+                    <a href="#" id="deactivate" role="menuitem">Deactivate</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <div class="profile-info">
+                <img src="assets/photos/blank-profile.png" alt="Profile Photo" class="profile-photo-large">
+                <div class="profile-details">
+                    <h2 class="username">username</h2>
+                    <p class="followers">Followers: 1000</p>
+                </div>
+                <button class="btn edit-profile-btn" id="editProfileBtn">Edit Profile</button>
+                <button class="btn update-profile-btn" id="updateProfileBtn" style="display: none;">Update Profile</button>
+            </div>
+            <div class="thin-line"></div>
+            <div class="additional-info">
+                <p class="full-name">
+                    <span id="fullNameText">Skylite4real</span>
+                    <input type="text" id="fullNameInput" class="edit-input" style="display: none;" value="jake">
+                </p>
+                <p class="gmail">
+                    <span id="emailText">Skylite@email.com</span>
+                    <input type="email" id="emailInput" class="edit-input" style="display: none;" value="ai@email.com">
+                </p>
+                <p class="dob">
+                    <span id="dobText">00-00-0000</span>
+                    <input type="date" id="dobInput" class="edit-input" style="display: none;" value="2000-02-25">
+                </p>
+                <p class="location">
+                    <span id="locationText">Country, City</span>
+                    <input type="text" id="locationInput" class="edit-input" style="display: none;" value="USA">
+                </p>
+                <p class="about">
+                    <span id="aboutText">💐💐The Skylite is the platform where users🌏
+                        will reach their potential👏.</span>
+                    <textarea id="aboutInput" class="edit-input" style="display: none;">This is about the user.</textarea>
+                </p>
+                <p class="links">
+                    <span id="linksText">http://example.com</span>
+                    <input type="url" id="linksInput" class="edit-input" style="display: none;" value="http://example.com">
+                </p>
+                <p class="profession">
+                    <span id="professionText">Content sharing platform💻</span>
+                    <input type="text" id="professionInput" class="edit-input" style="display: none;" value="Content Creator">
+                </p>
+            </div>
+            <div class="thin-line"></div>
+            <div class="profile-tabs">
+                <div class="tabs">
+                    <div id="videosTab" class="tab" onclick="showSection('videos')">
+                        <i class="fa-solid fa-film" style="color: #bbc0c3;"></i>
+                    </div>
+                    <div id="shortsTab" class="tab" onclick="showSection('shorts')">
+                        <i class="fa-solid fa-clapperboard" style="color: #bbc0c3;"></i>
+                    </div>
+                    <div id="postsTab" class="tab" onclick="showSection('posts')">
+                        <i class="fa-solid fa-images" style="color: #bbc0c3;"></i>
+                    </div>
+                    <div id="likedTab" class="tab" onclick="showSection('liked')">
+                        <i class="fa-regular fa-thumbs-up" style="color: #bbc0c3;"></i>
+                    </div>
+                    <div id="savedTab" class="tab" onclick="showSection('saved')">
+                        <i class="fa-regular fa-bookmark" style="color: #bbc0c3;"></i>
+                    </div>
+                    <div id="commentedTab" class="tab" onclick="showSection('commented')">
+                        <i class="fa-regular fa-comment" style="color: #bbc0c3;"></i>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div id="videosContent" class="content-section active">
+                        <!-- Videos content here -->
+                        <div class="video-item">Video 1</div>
+                        <div class="video-item">Video 2</div>
+                        <div class="video-item">Video 3</div>
+                        <div class="video-item">Video 1</div>
+                        <div class="video-item">Video 2</div>
+                        <div class="video-item">Video 3</div>
+                        <div class="video-item">Video 1</div>
+                        <div class="video-item">Video 2</div>
+                        <div class="video-item">Video 3</div>
+                        <div class="video-item">Video 1</div>
+                        <div class="video-item">Video 2</div>
+                        <div class="video-item">Video 3</div>
+                        <div class="video-item">Video 1</div>
+                        <div class="video-item">Video 2</div>
+                        <div class="video-item">Video 3</div>
+                        <div class="video-item">Video 1</div>
+                        <div class="video-item">Video 2</div>
+                        <div class="video-item">Video 3</div>
+                        <div class="video-item">Video 1</div>
+                        <div class="video-item">Video 2</div>
+                        <div class="video-item">Video 3</div>
+                    </div>
+                    <div id="shortsContent" class="content-section">
+                        <!-- Shorts content here -->
+                        <div class="short-item">Short 1</div>
+                        <div class="short-item">Short 2</div>
+                        <div class="short-item">Short 3</div>
+                    </div>
+                    <div id="postsContent" class="content-section">
+                        <!-- Posts content here -->
+                        <div class="post-item">Post 1</div>
+                        <div class="post-item">Post 2</div>
+                        <div class="post-item">Post 3</div>
+                    </div>
+                    <div id="likedContent" class="content-section">
+                        <!-- Like content here -->
+                        <div class="like-item">Like 1</div>
+                        <div class="like-item">Like 2</div>
+                        <div class="like-item">Like 3</div>
+                    </div>
+                    <div id="savedContent" class="content-section">
+                        <!-- Save content here -->
+                        <div class="save-item">Save 1</div>
+                        <div class="save-item">Save 2</div>
+                        <div class="save-item">Save 3</div>
+                    </div>
+                    <div id="commentedContent" class="content-section">
+                        <!-- Comment content here -->
+                        <div class="comment-item">Comment 1</div>
+                        <div class="comment-item">Comment 2</div>
+                        <div class="comment-item">Comment 3</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Section -->
+    <div id="settingsSection" class="settings-section">
+        <i class="fa-solid fa-arrow-left close-settings-icon" aria-label="Close Settings" role="button" tabindex="0"></i>
+        <span class="settings-title">Settings</span>
+        <hr class="settings-divider">
+
+        <div class="settings-content">
+            <!-- Preferences -->
+            <div class="settings-option">
+                <span>Preferences</span>
+            </div>
+
+            <div class="settings-option" id="darkModeToggle">
+                <i class="fa-solid fa-moon"></i>
+                <span>Dark Mode</span>
+                <i class="fa-solid fa-angle-down toggle-icon"></i>
+            </div>
+            
+            <div class="sub-option" id="darkModeOptions">
+                <label><input type="checkbox" id="darkModeEnable"> Enable</label>
+                <label><input type="checkbox" id="darkModeDisable"> Disable</label>
+            </div>
+
+            <div class="settings-option" id="notificationToggle">
+                <i class="fa-solid fa-bell"></i>
+                <span>Notifications</span>
+                <i class="fa-solid fa-angle-down toggle-icon"></i>
+            </div>
+            <div class="sub-option" id="notificationOptions">
+                <label><input type="checkbox"> Notify me of updates on my content</label>
+                <label><input type="checkbox"> Notify me of Product updates and announcements</label>
+                <label><input type="checkbox"> Notify me of promotional content</label>
+            </div>
+
+            <div class="settings-option" id="languageToggle">
+                <i class="fa-solid fa-language"></i>
+                <span>Languages</span>
+                <i class="fa-solid fa-angle-down toggle-icon"></i>
+            </div>
+            <div class="sub-option" id="languageOptions">
+                <label><input type="checkbox"> English</label>
+                <label><input type="checkbox"> Spanish</label>
+                <label><input type="checkbox"> French</label>
+                <label><input type="checkbox"> German</label>
+                <label><input type="checkbox"> Chinese</label>
+            </div>
+
+            <div class="settings-option" id="mediaControlToggle">
+                <i class="fa-solid fa-video"></i>
+                <span>Media Control</span>
+                <i class="fa-solid fa-angle-down toggle-icon"></i>
+            </div>
+            <div class="sub-option" id="mediaControlOptions">
+                <label><input type="checkbox"> Recommended</label>
+                <label><input type="checkbox"> Medium Quality</label>
+                <label><input type="checkbox"> High Quality</label>
+            </div>
+
+            <div class="settings-option" id="sensitiveContentToggle">
+                <i class="fa-solid fa-exclamation-triangle"></i>
+                <span>Sensitive Content</span>
+                <i class="fa-solid fa-angle-down toggle-icon"></i>
+            </div>
+            <div class="sub-option" id="sensitiveContentOptions">
+                <label><input type="checkbox"> Normal</label>
+                <label><input type="checkbox"> Medium</label>
+                <label><input type="checkbox"> More</label>
+            </div>
+
+            <div class="settings-option" id="profileVisibilityToggle">
+                <i class="fa-solid fa-user"></i>
+                <span>Profile Visibility</span>
+                <i class="fa-solid fa-angle-down toggle-icon"></i>
+            </div>
+            <div class="sub-option" id="profileVisibilityOptions">
+                <label><input type="checkbox"> Public</label>
+                <label><input type="checkbox"> Private</label>
+            </div>
+
+            <hr class="settings-divider">
+
+            <!-- Controls -->
+            <div class="settings-option">
+                <span>Controls</span>
+            </div>
+
+            <div class="settings-option">
+                <i class="fa-solid fa-play"></i>
+                <span>Play Your Ads</span>
+            </div>
+
+            <div class="settings-option">
+                <i class="fa-solid fa-clock"></i>
+                <span>Time on Skylite</span>
+            </div>
+
+            <hr class="settings-divider">
+
+            <!-- Help & Support -->
+            <div class="settings-option">
+                <span>Help & Support</span>
+            </div>
+
+            <div class="settings-option">
+                <i class="fa-solid fa-database"></i> <!-- Added icon -->
+                <span>Your data on Skylite</span>
+            </div>
+
+            <div class="settings-option">
+                <i class="fa-solid fa-file-contract"></i>
+                <span>Terms of Service</span>
+            </div>
+
+            <div class="settings-option">
+                <i class="fa-solid fa-shield-alt"></i>
+                <span>Privacy Policy</span>
+            </div>
+
+            <div class="settings-option">
+                <i class="fa-solid fa-exclamation-circle"></i>
+                <span>Report a Problem</span>
+            </div>
+
+            <div class="settings-option">
+                <i class="fa-solid fa-comment-dots"></i>
+                <span>Feedback</span>
+            </div>
+
+            <div class="settings-option">
+                <i class="fa-solid fa-book"></i>
+                <span>User Guide</span>
+            </div>
+
+            <div class="settings-option">
+                <i class="fa-solid fa-info-circle"></i>
+                <span>About</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Upload Section -->
+    <!-- Video Upload Section -->
+    <div id="videoUploadSection" class="video-upload-section">
+        <i class="fa-solid fa-arrow-left close-video-upload" id="closevideoUploadSection"></i>
+        <h5 class="video-section-header">SkyLite Video Upload</h5>
+        <!-- Circles -->
+        <div class="circle-container">
+            <div class="circle" id="circle1" onclick="showCircleContent(1)">1</div>
+            <div class="circle" id="circle2" onclick="showCircleContent(2)">2</div>
+            <div class="circle" id="circle3" onclick="showCircleContent(3)">3</div>
+            <div class="circle" id="circle4" onclick="showCircleContent(4)">4</div>
+        </div>
+        <p id="videoSection" class="step-1">This is the step-1 of video upload process. Make sure to choose best video to get more views.</p>
+        <!-- Circle 1 content -->
+        <div id="circle1Content" class="circle-content">
+            <div class="video-upload-wrapper">
+                <div class="video-upload-item">
+                    <input type="file" id="videoFile" accept="video/*" style="display: none;" onchange="displayVideo(this)">
+                    <button class="choose-video-button" onclick="document.getElementById('videoFile').click();">Choose Video</button>
+                    <i class="fa-solid fa-info-circle video-info-icon" onclick="toggleDescription('videoDescription')"></i>
+                    <p id="videoDescription" class="description" style="display: none;">Please click the button above to upload a video file from your device. Ensure the video is in a compatible format and adheres to the specified file size limits. Once uploaded, a preview will be available below.</p>
+                    <div id="videoBox" class="display-box"></div>
+                    <div id="frameBox" class="display-box">
+                        <div id="frameContainer" class="frame-container">
+                            <!-- Frames will be dynamically added here -->
+                        </div>
+                        <button id="prevFrame" class="frame-nav-button" onclick="prevFrame()">&#10094;</button>
+                        <button id="nextFrame" class="frame-nav-button" onclick="nextFrame()">&#10095;</button>
+                    </div>   
+                </div>
+                <div class="video-upload-item">
+                    <input type="file" id="thumbnailFile" accept="image/*" style="display: none;" onchange="displayThumbnail(this)">
+                    <button class="choose-thumbnail-button" onclick="document.getElementById('thumbnailFile').click();">Choose Thumbnail</button>
+                    <i class="fa-solid fa-info-circle thumbnail-info-icon" onclick="toggleDescription('thumbnailDescription')"></i>
+                    <p id="thumbnailDescription" class="description" style="display: none;">Please click the button above to upload a thumbnail image from your device. The image should be in a supported format and within the designated file size limits. Once uploaded, the selected thumbnail will be displayed below.</p>
+                    <div id="thumbnailBox" class="display-box"></div>
+                </div>
+            </div>
+            <button id="nextButton" class="next-button" style="display: none;" onclick="goToNext()">Next</button>
+        </div>
+
+        <!-- Circle 2 content -->
+        <div id="circle2Content" class="circle-content" style="display: none;">
+            <p id="videoSection" class="step-2">You have successfully completed the Step-1 of the video upload process. This is the step-2 of video upload process. Make sure to fill the below fields and The Title is very mandatory, and the Descriptio, Tgas, Location are optional</p>
+            <div class="form-container">
+                <div class="input-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title">
+                </div>
+                <div class="input-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description"></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="tags">Add Tags</label>
+                    <textarea id="tags" name="tags"></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="location">Add Location</label>
+                    <input type="text" id="location" name="location">
+                </div>
+                <button id="circle2NextButton" class="circle-2-next-button" onclick="submitForm()">Next</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Short Section -->
+    
+    <!-- Post Section -->
+    
+    <!-- Bootstrap JavaScript and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- JavaScript -->
+    <script src="./codex/sidebar/sidebar.js"></script>
+
+    <script src="./codex/sidebar/settings/settings.js"></script>
+
+    <script src="./codex/profile-picture/profile/profile.js"></script>
+
+    <script src="./codex/profile-picture/add/actual/add.js"></script>
+
+
+    <script src="./codex/main-feed/feeds.js"></script>
+
+    <script src="./codex/search/search.js"></script>
+
+    <script src="./codex/forms/media/vid.js"></script>
+
+
+</body>
+</html>
